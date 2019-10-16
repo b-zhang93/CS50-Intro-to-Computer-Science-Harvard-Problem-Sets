@@ -1,0 +1,5 @@
+ask for height
+get height input
+check if input is between 1 and 8
+if yes proceed, else go back to ask for height
+iterate from 1 to input and add new line for each
