@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Funds
+{% endblock %}
+
+{% block main %}
+    <form action="/addcash" method="post">
+        <p>You Currently Have: <b>{{ funds | usd }}</b></p><br>
+        <div class="form-group">
+            <h5>Add Funds</h5>
+            $ <input class="form-control" type="text" id="textInput" placeholder="25000" value="" readonly>
+            <input type="range" class="custom-range" min="0" max="100000" step="5000" name="add" onmousemove="updateTextInput(this.value)">
+            <div class="left">$0</div>
+            <div class="right">$100,000</div>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit"> Add </button>
+    </form>
+
+    <script>
+        var isMouseDown = false;
+        document.onmousedown = function() { isMouseDown = true };
+        document.onmouseup   = function() { isMouseDown = false };
+
+        function updateTextInput(val) {
+            if(isMouseDown) {
+                 document.getElementById('textInput').value=val;
+            }
+        }
+    </script>
+{% endblock %}

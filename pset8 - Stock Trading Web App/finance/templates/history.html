@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="form-group">
+        <h2>History of Transactions</h2>
+    </div>
+
+    <table class="table" id="history">
+       <thead class="thead-dark">
+          <tr>
+             <th scope="col">Stock</th>
+             <th scope="col">Buy or Sell</th>
+             <th scope="col">Shares</th>
+             <th scope="col">Price Purchased</th>
+             <th scope="col">Transaction</th>
+             <th scope="col">Date Stamp</th>
+          </tr>
+       <tbody>
+          {% for history in history %}
+          <tr>
+             <td>{{ history.symbol }}</td>
+             <td>{{ history.buyorsell }}</td>
+             <td>{{ history.shares }}</td>
+             <td>{{ history.price | usd }}</td>
+             <td>{{ history.amount | usd}}</td>
+             <td>{{ history.date_purch }}</td>
+          </tr>
+          {% endfor %}
+       </tbody>
+    </table>
+{% endblock %}

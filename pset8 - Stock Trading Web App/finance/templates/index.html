@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="left">
+        <h1><b>Portfolio {{ total | usd}}</b></h1>
+        <h4>Total Stock Value: <b>{{ stocktotal | usd }}</b></h4>
+    </div>
+    <div class="right">
+
+    </div>
+
+    <table class="table" id="index">
+       <thead class="thead-dark">
+          <tr>
+             <th scope="col">Stock</th>
+             <th scope="col">Shares Owned</th>
+             <th scope="col">Price</th>
+             <th scope="col">Current Value</th>
+          </tr>
+       <tbody>
+          <tr bgcolor="#D3D3D3">
+             <td><b>CASH</b></td>
+             <td></td>
+             <td></td>
+             <td><b>{{ total | usd}}</b></td>
+          </tr>
+          {% for index in index %}
+          <tr>
+             <td>{{ index.symbol }}</td>
+             <td>{{ index.shares }}</td>
+             <td>{{ index.curr_price | usd}}</td>
+             <td>{{ index.curr_value | usd}}</td>
+          </tr>
+          {% endfor %}
+       </tbody>
+       <tr bgcolor="#D3D3D3">
+             <td><b>Grand Total</b></td>
+             <td></td>
+             <td></td>
+             <td><b>{{ pvalue | usd}}</b></td>
+          </tr>
+    </table>
+{% endblock %}

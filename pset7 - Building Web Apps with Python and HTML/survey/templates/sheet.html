@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1 class="mb-3">Results</h1>
+    <!-- using AJAX to input CSV file into an HTML table -->
+    <table class="table" id="survey">
+       <thead class="thead-dark">
+          <tr>
+             <th scope="col">First</th>
+             <th scope="col">Last</th>
+             <th scope="col">Gender</th>
+             <th scope="col">Student</th>
+             <th scope="col">Comments</th>
+             <th scope="col">Knowledge</th>
+          </tr>
+       <tbody>
+          {% for info in info %}
+          <tr>
+             <td>{{ info[0] }}</td>
+             <td>{{ info[1] }}</td>
+             <td>{{ info[2] }}</td>
+             <td>{{ info[3] }}</td>
+             <td>{{ info[4] }}</td>
+             <td>{{ info[5] }}</td>
+          </tr>
+          {% endfor %}
+       </tbody>
+    </table>
+{% endblock %}
