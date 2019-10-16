@@ -1,0 +1,9 @@
+ask user to input sentence
+check if they are strings and not invalid
+check for key value
+convert each character to int value
+iterate each character of the sentence
+if the value is a letter and upper case rotate it by the key value and keep casing
+if value is a letter and lower case rotate it by key value and keep casing
+if neither just return as is
+write out the new encrypted message
